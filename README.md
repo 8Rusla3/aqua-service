@@ -39,3 +39,4 @@ Website for Aqua Service Inc—Toronto's trusted contractor fixing wet basements
 - Colors and variables defined in CSS :root
 - Easy to modify fonts, spacing, and layout
 - Add images by placing them in assets/ and updating HTML
+# aqua-service
