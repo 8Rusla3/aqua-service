@@ -12,12 +12,12 @@
 
 [[redirects]]
   from = "/thanks"
-  to = "/thanks.html"
+  to = "/thanks/"
   status = 301
 
 [[redirects]]
   from = "/thanks/"
-  to = "/thanks.html"
+  to = "/thanks/"
   status = 301
 
 # Performance & Security Headers for 10k+ concurrent users
