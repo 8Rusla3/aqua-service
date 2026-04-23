@@ -56,23 +56,48 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Smooth Scroll Behavior - Delegate event listeners for better performance
+function getHashFromHref(href) {
+  if (!href) return "";
+  const hashIndex = href.indexOf("#");
+  if (hashIndex === -1) return "";
+  return href.slice(hashIndex);
+}
+
+function isSamePageHashLink(anchorEl) {
+  try {
+    const href = anchorEl.getAttribute("href") || "";
+    if (!href.includes("#")) return false;
+    // Pure hash links (#contact) are always same-page.
+    if (href.startsWith("#")) return true;
+    // For links like index.html#contact, compare pathname to current.
+    const url = new URL(anchorEl.href, window.location.href);
+    return url.origin === window.location.origin && url.pathname === window.location.pathname;
+  } catch {
+    return false;
+  }
+}
+
+// Smooth Scroll Behavior - only intercept same-page anchors that exist
 document.addEventListener("click", function (e) {
-  const anchor = e.target.closest('a[href^="#"]');
+  const anchor = e.target.closest('a[href*="#"]');
   if (!anchor) return;
+  if (!isSamePageHashLink(anchor)) return;
+
+  const hash = getHashFromHref(anchor.getAttribute("href"));
+  if (!hash || hash === "#") return;
+
+  const target = document.querySelector(hash);
+  if (!target) return;
 
   e.preventDefault();
-  const target = document.querySelector(anchor.getAttribute("href"));
-  if (target) {
-    target.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-    // Close mobile menu if open
-    const navMobile = document.getElementById("nav-mobile");
-    if (navMobile && navMobile.classList.contains("open")) {
-      navMobile.classList.remove("open");
-    }
+  target.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+  // Close mobile menu if open
+  const navMobile = document.getElementById("nav-mobile");
+  if (navMobile && navMobile.classList.contains("open")) {
+    navMobile.classList.remove("open");
   }
 });
 
@@ -91,7 +116,9 @@ function updateActiveNav() {
 
   navLinks.forEach((link) => {
     link.classList.remove("active");
-    if (link.getAttribute("href").slice(1) === current) {
+    const href = link.getAttribute("href") || "";
+    const hash = getHashFromHref(href);
+    if (hash && hash.slice(1) === current) {
       link.classList.add("active");
     }
   });

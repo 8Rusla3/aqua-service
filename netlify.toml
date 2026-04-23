@@ -10,6 +10,16 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
+[[redirects]]
+  from = "/thanks"
+  to = "/thanks.html"
+  status = 301
+
+[[redirects]]
+  from = "/thanks/"
+  to = "/thanks.html"
+  status = 301
+
 # Performance & Security Headers for 10k+ concurrent users
 [[headers]]
   for = "/*"

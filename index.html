@@ -550,10 +550,17 @@
                 name="contact"
                 method="POST"
                 data-netlify="true"
+                netlify-honeypot="bot-field"
+                action="/thanks.html"
                 novalidate
                 aria-label="Contact form"
               >
                 <input type="hidden" name="form-name" value="contact" />
+                <p class="sr-only">
+                  <label>
+                    Don’t fill this out if you’re human: <input name="bot-field" />
+                  </label>
+                </p>
                 <div class="field">
                   <label for="name"
                     >Name <span aria-label="required">*</span></label
