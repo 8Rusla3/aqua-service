@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://aquaserviceinc.ca/</loc>
-    <lastmod>2024-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://aquaservice.ca/</loc>
   </url>
   <url>
-    <loc>https://aquaserviceinc.ca/gallery.html</loc>
-    <lastmod>2024-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://aquaservice.ca/gallery</loc>
   </url>
-</urlset></content>
-<parameter name="filePath">/Users/ruslanyankiv/Documents/Aqua Service/sitemap.xml
+  <url>
+    <loc>https://aquaservice.ca/thanks/</loc>
+  </url>
+</urlset>

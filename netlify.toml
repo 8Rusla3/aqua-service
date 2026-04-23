@@ -11,6 +11,16 @@
   status = 200
 
 [[redirects]]
+  from = "/gallery"
+  to = "/gallery/"
+  status = 301
+
+[[redirects]]
+  from = "/gallery/"
+  to = "/gallery/"
+  status = 301
+
+[[redirects]]
   from = "/favicon.ico"
   to = "/favicon.svg"
   status = 301
