@@ -120,21 +120,11 @@ header {
 }
 
 .logo-mark {
-  width: 32px;
-  height: 32px;
+  width: 42px;
+  height: 42px;
   border-radius: 999px;
-  background: radial-gradient(
-    circle at 30% 20%,
-    #38bdf8,
-    #0ea5e9 45%,
-    #0369a1 100%
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #e0f2fe;
-  font-weight: 700;
-  font-size: 0.9rem;
+  display: block;
+  object-fit: cover;
   box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
 }
 
@@ -153,6 +143,34 @@ header {
 .logo-text span:last-child {
   font-size: 0.75rem;
   color: var(--muted);
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  z-index: 1000;
 }
 
 .nav-links {
@@ -222,16 +240,18 @@ header {
 }
 
 .btn-secondary {
-  background: #f8fafc;
-  color: #14afce;
-  border: 1px solid rgba(37, 99, 235, 0.22);
+  background-color: transparent;
+  color: #1a1a1a;
+  border: 1.5px solid #4db7ff;
   box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.12);
+  border-radius: 8px;
+  transition: all 0.25s ease-in-out;
 }
 
 .btn-secondary:hover {
   transform: translateY(-1px);
-  background: #eff6ff;
-  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.18);
+  background-color: #6fd4ff;
+  box-shadow: 0 8px 20px rgba(79, 183, 255, 0.25);
 }
 
 .btn-ghost {
